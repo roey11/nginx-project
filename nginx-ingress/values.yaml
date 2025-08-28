@@ -364,7 +364,7 @@ controller:
     create: true
 
     ## New Ingresses without an ingressClassName field specified will be assigned the class specified in `controller.ingressClass`. Requires "controller.ingressClass.create".
-    setAsDefaultIngress: false
+    setAsDefaultIngress: true
 
   ## Comma separated list of namespaces to watch for Ingress resources. By default, the Ingress Controller watches all namespaces. Mutually exclusive with "controller.watchNamespaceLabel".
   watchNamespace: ""
@@ -432,7 +432,7 @@ controller:
     create: true
 
     ## The type of service to create for the Ingress Controller.
-    type: NodePort
+    type: LoadBalancer
 
     ## The externalTrafficPolicy of the service. The value Local preserves the client source IP.
     externalTrafficPolicy: Local
@@ -475,7 +475,7 @@ controller:
       port: 80
 
       ## The custom NodePort for the HTTP port. Requires controller.service.type set to NodePort or LoadBalancer.
-      nodePort: 30080
+      #nodePort: 30080
 
       ## The HTTP port on the POD where the Ingress Controller service is running.
       targetPort: 80
@@ -491,7 +491,7 @@ controller:
       port: 443
 
       ## The custom NodePort for the HTTPS port. Requires controller.service.type set to NodePort or LoadBalancer.
-      nodePort: 30443
+      #nodePort: 30443
 
       ## The HTTPS port on the POD where the Ingress Controller service is running.
       targetPort: 443
