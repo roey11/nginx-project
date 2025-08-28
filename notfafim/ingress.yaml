@@ -4,6 +4,7 @@ metadata:
   name: notfafim-ingress
   namespace: notfafim
   annotations:
+    nginx.org/limit-req-rate: 1r/s
 spec:
   ingressClassName: nginx
   rules:
