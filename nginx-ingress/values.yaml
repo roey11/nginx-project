@@ -326,7 +326,7 @@ controller:
     create: true
 
     ## New Ingresses without an ingressClassName field specified will be assigned the class specified in `controller.ingressClass`. Requires "controller.ingressClass.create".
-    setAsDefaultIngress: false
+    setAsDefaultIngress: true
 
   ## Comma separated list of namespaces to watch for Ingress resources. By default, the Ingress Controller watches all namespaces. Mutually exclusive with "controller.watchNamespaceLabel".
   watchNamespace: ""
@@ -344,7 +344,7 @@ controller:
   enableOIDC: false
 
   ## Enable TLS Passthrough on port 443. Requires controller.enableCustomResources.
-  enableTLSPassthrough: false
+  enableTLSPassthrough: true
 
   ## Set the port for TLS Passthrough. Requires controller.enableCustomResources and controller.enableTLSPassthrough.
   tlsPassthroughPort: 443

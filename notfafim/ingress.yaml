@@ -6,6 +6,10 @@ metadata:
   annotations:
     nginx.org/limit-req-rate: 1r/s
 spec:
+  tls:
+    - hosts:
+      - notfafim.com
+      secretName: tls-secret
   ingressClassName: nginx
   rules:
   - host: notfafim.com

@@ -6,6 +6,11 @@ metadata:
   annotations:
     nginx.org/rewrites: 'serviceName=amit rewrite=/; serviceName=or rewrite=/; serviceName=lior rewrite=/; serviceName=matan rewrite=/; serviceName=daniel rewrite=/; serviceName=orel rewrite=/; serviceName=rafael rewrite=/'
 spec:
+  tls:
+    - hosts:
+      - nehfafim.down.com
+      - nehfafim.up.com
+      secretName: tls-secret
   ingressClassName: nginx
   rules:
   - host: nehfafim.down.com

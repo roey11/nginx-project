@@ -1,0 +1,16 @@
+ [req]
+    distinguished_name = server
+
+    [server]
+    countryName = IL
+    countryName_default = IL
+    stateOrProvinceName = Israel
+    stateOrProvinceName_default = Israel
+    localityName = City
+    localityName_default = City
+    organizationalUnitName = ABC
+    organizationalUnitName_default = ABC
+    commonName = notfafim.com
+
+
+
