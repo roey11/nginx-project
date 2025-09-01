@@ -1,7 +1,7 @@
 #!/bin/bash
 for name in {'amit','rafael','matan'}; do {
-    echo "curl https://nehfafim.up.com/$name --cacert CA/rootCA.crt"
+    echo "curl https://nehfafim.up.com/$name"
     sleep 1
-    curl https://nehfafim.up.com/$name --cacert CA/rootCA.crt
+    curl https://nehfafim.up.com/$name
     sleep 1
 }; done
