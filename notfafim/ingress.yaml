@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: notfafim-ingress
+  namespace: notfafim
+  annotations:
+    nginx.org/limit-req-rate: 1r/s
+spec:
+  tls:
+    - hosts:
+      - notfafim.com
+      secretName: tls-secret
+  ingressClassName: nginx
+  rules:
+  - host: notfafim.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: gleb
+            port:
+              number: 8080

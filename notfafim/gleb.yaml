@@ -1,0 +1,35 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: gleb
+  namespace: notfafim
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      nehfaf: gleb
+  template:
+    metadata:
+      labels:
+        nehfaf: gleb
+    spec:
+      containers:
+        - name: container
+          image: 'quay.io/rhl193008/front-app:galab-1'
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+              protocol: TCP           
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: gleb
+  namespace: notfafim
+spec:
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  selector:
+    nehfaf: gleb

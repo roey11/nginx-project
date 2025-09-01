@@ -1,0 +1,88 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nehfafim-ingress
+  namespace: nehfafim
+  annotations:
+    nginx.org/rewrites: 'serviceName=amit rewrite=/; serviceName=or rewrite=/; serviceName=lior rewrite=/; serviceName=matan rewrite=/; serviceName=daniel rewrite=/; serviceName=orel rewrite=/; serviceName=rafael rewrite=/'
+spec:
+  tls:
+    - hosts:
+      - nehfafim.down.com
+      - nehfafim.up.com
+      secretName: tls-secret
+  ingressClassName: nginx
+  rules:
+  - host: nehfafim.down.com
+    http:
+      paths:
+      - path: /amit
+        pathType: Prefix
+        backend:
+          service:
+            name: amit
+            port:
+              number: 8080
+      - path: /or
+        pathType: Prefix
+        backend:
+          service:
+            name: or
+            port:
+              number: 8080
+      - path: /orel
+        pathType: Prefix
+        backend:
+          service:
+            name: orel
+            port:
+              number: 8080
+      - path: /daniel
+        pathType: Prefix
+        backend:
+          service:
+            name: daniel
+            port:
+              number: 8080
+      - path: /matan
+        pathType: Prefix
+        backend:
+          service:
+            name: matan
+            port:
+              number: 8080
+      - path: /lior
+        pathType: Prefix
+        backend:
+          service:
+            name: lior
+            port:
+              number: 8080
+  - host: nehfafim.up.com
+    http:
+      paths:
+      - path: /amit
+        pathType: Prefix
+        backend:
+          service:
+            name: amit
+            port:
+              number: 8080
+      - path: /matan
+        pathType: Prefix
+        backend:
+          service:
+            name: matan
+            port:
+              number: 8080
+      - path: /rafael
+        pathType: Prefix
+        backend:
+          service:
+            name: rafael
+            port:
+              number: 8080
+
+    
+
+
